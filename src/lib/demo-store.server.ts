@@ -12,7 +12,11 @@ interface DemoStore {
   statusOverrides: Record<string, CouchStatus>
 }
 
-const STORE_PATH = join(process.cwd(), '.data', 'demo-store.json')
+// Serverless (Vercel/Lambda): nur /tmp ist beschreibbar. Ephemer pro
+// Instanz – für den Demo-Modus akzeptabel, echte Persistenz kommt via Supabase.
+const STORE_PATH = process.env.VERCEL
+  ? join('/tmp', 'couchgut-demo-store.json')
+  : join(process.cwd(), '.data', 'demo-store.json')
 
 const EMPTY_STORE: DemoStore = { orders: [], statusOverrides: {} }
 
