@@ -11,11 +11,11 @@ export function Header() {
   const auth = useAuth()
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bone/90 backdrop-blur">
+    <header className="sticky top-0 z-40 bg-deep-sage/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-3 sm:py-4">
         <Link
           to="/"
-          className="font-display text-2xl text-deep-sage transition-colors hover:text-ember"
+          className="font-display text-2xl text-bone transition-colors hover:text-ember"
         >
           Couchgut
         </Link>
@@ -25,7 +25,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-full px-3 py-2 text-sm font-medium text-ink transition-colors hover:bg-sage/20 [&.active]:bg-sage/25 [&.active]:text-deep-sage"
+              className="rounded-full px-3 py-2 text-sm font-medium text-bone/85 transition-colors hover:bg-bone/10 hover:text-bone [&.active]:bg-bone/20 [&.active]:text-bone"
             >
               {item.label}
             </Link>
@@ -34,14 +34,14 @@ export function Header() {
           {auth.isIdentified ? (
             <Link
               to="/konto"
-              className="ml-1 rounded-full border border-deep-sage px-3 py-2 text-sm font-medium text-deep-sage transition-colors hover:bg-deep-sage hover:text-bone"
+              className="ml-1 rounded-full border border-bone/50 px-3 py-2 text-sm font-medium text-bone transition-colors hover:bg-bone hover:text-deep-sage"
             >
               {auth.displayName ?? 'Konto'}
             </Link>
           ) : (
             <Link
               to="/auth"
-              className="ml-1 rounded-full border border-deep-sage px-3 py-2 text-sm font-medium text-deep-sage transition-colors hover:bg-deep-sage hover:text-bone"
+              className="ml-1 rounded-full border border-bone/50 px-3 py-2 text-sm font-medium text-bone transition-colors hover:bg-bone hover:text-deep-sage"
             >
               Anmelden
             </Link>

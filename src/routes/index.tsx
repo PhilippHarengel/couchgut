@@ -56,45 +56,48 @@ function Home() {
       {/* Hero */}
       <section
         aria-labelledby="hero-heading"
-        className="mx-auto grid max-w-6xl items-center gap-10 px-5 pt-14 pb-20 lg:grid-cols-[1fr_1.15fr] lg:pt-20"
+        className="mx-auto max-w-6xl px-5 pt-8 pb-16 lg:pt-12"
       >
-        <div>
-          <p className="mb-4 inline-block rounded-full bg-mist/60 px-4 py-1.5 text-sm font-medium text-ink">
-            Second-Hand · Ein Verkäufer · Persönlich kuratiert
-          </p>
-          <h1 id="hero-heading" className="text-hero text-deep-sage">
-            Vintage Sofas mit&nbsp;Geschichte.
-          </h1>
-          <p className="mt-6 max-w-md text-lg text-muted">
-            Handverlesene Second-Hand-Couches – restauriert, ehrlich
-            beschrieben und bereit für ihr zweites Wohnzimmer.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link to="/couches" className="btn btn-primary">
-              Kollektion ansehen
-            </Link>
-            <Link to="/ueber" className="btn btn-ghost">
-              Warum Second-Hand?
-            </Link>
-          </div>
-        </div>
-        {heroCouch ? (
-          <Link
-            to="/couches/$id"
-            params={{ id: heroCouch.slug }}
-            className="img-zoom block overflow-hidden rounded-3xl shadow-[0_30px_60px_-30px_rgba(31,36,33,0.4)]"
-          >
+        <div className="relative overflow-hidden rounded-3xl shadow-[0_30px_60px_-30px_rgba(31,36,33,0.4)]">
+          {heroCouch ? (
             <img
               src={heroCouch.images[0]}
               alt={`${heroCouch.title} – ${heroCouch.style} Sofa in ${heroCouch.color}`}
-              width={1200}
+              width={1600}
               height={900}
               loading="eager"
               fetchPriority="high"
-              className="h-full w-full object-cover"
+              className="aspect-[16/10] w-full object-cover sm:aspect-[16/9]"
             />
-          </Link>
-        ) : null}
+          ) : (
+            <div className="aspect-[16/9] w-full bg-sage/30" />
+          )}
+          <div className="absolute inset-0 flex items-center bg-gradient-to-r from-ink/60 via-ink/25 to-transparent p-5 sm:p-8 lg:p-12">
+            <div className="max-w-md rounded-3xl bg-deep-sage/95 p-7 text-bone shadow-[0_20px_50px_-20px_rgba(31,36,33,0.6)] backdrop-blur-sm sm:p-9">
+              <p className="mb-4 inline-block rounded-full bg-mist/25 px-4 py-1.5 text-xs font-medium text-mist sm:text-sm">
+                Second-Hand · Persönlich kuratiert
+              </p>
+              <h1 id="hero-heading" className="font-display text-3xl leading-[1.1] sm:text-4xl lg:text-5xl">
+                Vintage Sofas mit&nbsp;Geschichte.
+              </h1>
+              <p className="mt-4 max-w-sm text-sm text-bone/80 sm:text-base">
+                Handverlesene Second-Hand-Couches – restauriert, ehrlich
+                beschrieben und bereit für ihr zweites Wohnzimmer.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link to="/couches" className="btn btn-ember">
+                  Kollektion ansehen
+                </Link>
+                <Link
+                  to="/ueber"
+                  className="btn border-bone/50 text-bone hover:bg-bone hover:text-deep-sage"
+                >
+                  Warum Second-Hand?
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Featured piece */}
@@ -165,6 +168,20 @@ function Home() {
             </Reveal>
           ))}
         </ul>
+
+        <Reveal className="mt-12 grid items-center gap-6 rounded-2xl bg-deep-sage px-7 py-8 text-bone sm:grid-cols-[auto_1fr_auto] sm:gap-8">
+          <p className="font-display text-5xl leading-none sm:text-6xl">−90&nbsp;%</p>
+          <p className="max-w-md text-sm leading-relaxed text-bone/80 sm:text-base">
+            Emissionen gegenüber einem Neukauf. Kuratiert, restauriert, ehrlich
+            beschrieben — Patina bleibt Patina.
+          </p>
+          <Link
+            to="/ueber"
+            className="btn justify-self-start border-bone/50 text-bone hover:bg-bone hover:text-deep-sage sm:justify-self-end"
+          >
+            Mehr erfahren
+          </Link>
+        </Reveal>
       </section>
 
       {/* Story strip */}

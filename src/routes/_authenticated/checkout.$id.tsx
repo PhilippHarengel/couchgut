@@ -85,7 +85,10 @@ function CheckoutPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-14">
-      <h1 className="text-section text-deep-sage">Kauf bestätigen</h1>
+      <p className="mb-2 text-xs font-semibold tracking-[0.15em] text-sage uppercase">
+        Schritt 2 von 3 — Lieferadresse
+      </p>
+      <h1 className="text-section text-deep-sage">Wohin darf das Sofa?</h1>
       <p className="mt-2 text-muted">
         Verbindliche Bestellung – Bezahlung &amp; Übergabe klären wir danach
         persönlich. Keine Online-Zahlung nötig.
